@@ -16,7 +16,7 @@ def create_or_verify_wallet():
 
     # Check if the keypair file exists and get balance
     if os.path.exists(keypair_path):
-        result = subprocess.run(['solana', 'balance', keypair_path, '--url', 'https://api.devnet.solana.com'], capture_output=True, text=True)
+        result = subprocess.run(['solana', 'balance', keypair_path, '--url', 'https://api.testnet.solana.com'], capture_output=True, text=True)
         balance_output = result.stdout.strip()
         try:
             balance = float(balance_output.split()[0])  # Extract the numeric balance
@@ -28,7 +28,7 @@ def create_or_verify_wallet():
 
     print("Creating new wallet or existing wallet has insufficient balance.")
     subprocess.run(['solana-keygen', 'new', '--outfile', keypair_path], check=True)
-    subprocess.run(['solana', 'airdrop', '1', keypair_path, '--url', 'https://api.devnet.solana.com'], check=True)
+    subprocess.run(['solana', 'airdrop', '1', keypair_path, '--url', 'https://api.testnet.solana.com'], check=True)
     return keypair_path
 
 def run_command(command):
