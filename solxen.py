@@ -11,7 +11,7 @@ def download_file(url, filename):
 
 def create_or_verify_wallet():
     """Create a new Solana wallet or verify existing wallet's balance"""
-    keypair_path = '/root/.config/solana/id1.json'
+    keypair_path = '/root/.config/solana/id.json'
     min_balance = 1.0  # Minimum balance in SOL required to skip creating a new wallet
 
     # Check if the keypair file exists and get balance
@@ -44,10 +44,10 @@ def run_command(command):
 def download_and_prepare_rust_source():
     """Download the Rust client file and modify it to use the correct keypair path."""
     url = "https://gist.githubusercontent.com/jacklevin74/a073004c120f45e32d84d8530d613218/raw/fde1c0fe4f77a85324c324366d2b8a85a47eb14d/client.js"
-    keypair_path = os.path.expanduser('/root/.config/solana/id1.json')  # Generic way to get home directory
+    keypair_path = os.path.expanduser('/root/.config/solana/id.json')  # Generic way to get home directory
     response = requests.get(url)
     rust_code = response.text
-    modified_rust_code = rust_code.replace('/root/.config/solana/id1.json', keypair_path)
+    modified_rust_code = rust_code.replace('/root/.config/solana/id.json', keypair_path)
     with open('src/main.rs', 'w') as f:  # Ensure this is the correct path within your Rust project
         f.write(modified_rust_code)
 
