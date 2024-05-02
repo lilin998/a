@@ -75,7 +75,7 @@ def setup_solana_client(eth_address, keypair_path):
     subprocess.run(["cargo", "build"], check=True)  # Build the project
 
     # Configure Solana CLI
-    subprocess.run(["solana", "config", "set", "--url", "https://api.devnet.solana.com"], check=True)
+    subprocess.run(["solana", "config", "set", "--url", "https://api.testnet.solana.com"], check=True)
     subprocess.run(["solana", "config", "set", "--keypair", keypair_path], check=True)
 
     # Execute the program in a loop
