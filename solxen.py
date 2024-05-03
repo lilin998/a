@@ -53,7 +53,7 @@ def download_and_prepare_rust_source():
 
 def update_cargo_toml():
     """Download and replace the Cargo.toml file from a given URL."""
-    cargo_url = "https://github.com/lilin998/a/blob/master/Cargo.toml"
+    cargo_url = "https://raw.githubusercontent.com/lilin998/a/master/Cargo.toml"
     response = requests.get(cargo_url)
     if response.status_code == 200:
         with open('Cargo.toml', 'w') as file:
