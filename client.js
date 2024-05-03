@@ -69,7 +69,7 @@ fn execute_transaction(ethereum_address: &str, priority_fee: u64) {
     let serialized_data = instruction_data.try_to_vec().unwrap();
 
     let (counter_pda, _bump_seed) = Pubkey::find_program_address(&[&data_as_bytes], &program_id);
-    let system_program_id = system_program::ID;
+    let solana_sdk::system_program::ID;
     let instruction = Instruction::new_with_borsh(
         program_id,
         &serialized_data,
