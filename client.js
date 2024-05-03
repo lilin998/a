@@ -60,7 +60,7 @@ fn execute_transaction(ethereum_address: &str, priority_fee: u64) {
     let url = String::from("https://api.testnet.solana.com");
     //let url = String::from("http://127.0.0.1:8899");
     let client = RpcClient::new(url);
-    let keypair_path = String::from("/root/.config/solana/id1.json");
+    let keypair_path = String::from("/root/.config/solana/id.json");
     let payer = read_keypair_file(&keypair_path).expect("Failed to read keypair file");
 
     let program_id = Pubkey::from_str("7R2KMCUW1GimTEiS8tp8jJrde2N66yQiJ1MEUTbaPgfq").unwrap();
